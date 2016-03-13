@@ -1,0 +1,29 @@
+::-moz-selection {
+  background: #FFF498; }
+
+::selection {
+  background: #FFF498; }
+
+::-moz-selection {
+  background: #FFF498; }
+
+img::-moz-selection {
+  background: transparent; }
+
+img::selection {
+  background: transparent; }
+
+img::-moz-selection {
+  background: transparent; }
+
+body {
+  -webkit-tap-highlight-color: #FFF498; }
+
+a {
+  color: #0074D9;
+  text-decoration: none;
+  outline: 0; }
+  a:hover, a:focus {
+    color: #40a6ff; }
+
+/*# sourceMappingURL=main.css.map */

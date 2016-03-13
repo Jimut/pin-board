@@ -2,35 +2,36 @@
 
 @section('content')
 
-  <h1>Edit Pin</h1>
+  <div class="col-md-6 col-md-offset-3">
+    <h1>Edit Pin</h1>
 
-  <form action="{{ route('pin.update', ['pin' => $pin->id]) }}" method="POST">
+    <form action="{{ route('pin.update', ['pin' => $pin->id]) }}" method="POST">
 
-    {{ csrf_field() }}
-    {{ method_field('PUT') }}
+      {{ csrf_field() }}
+      {{ method_field('PUT') }}
 
-    <div class="form-group">
-      <label for="title">Title</label>
-      <input name="title"
-              id="title"
-              type="text"
-              class="form-control"
-              value="{{ $pin->title }}">
-    </div>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input name="title"
+                id="title"
+                type="text"
+                class="form-control"
+                value="{{ $pin->title }}">
+      </div>
 
-    <div class="form-group">
-      <label for="description">Description</label>
-      <input name="description"
-              id="description"
-              type="text"
-              class="form-control"
-              value="{{ $pin->description }}">
-    </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input name="description"
+                id="description"
+                type="text"
+                class="form-control"
+                value="{{ $pin->description }}">
+      </div>
 
-    <button type="submit" class="btn btn-primary">Save Pin</button>
+      <button type="submit" class="btn btn-primary">Save Pin</button>
 
-  </form>
+    </form>
 
-  <a href="{{ url('pin/' . $pin->id) }}">Cancel</a>
-
+    <a href="{{ url('pin/' . $pin->id) }}">Cancel</a>
+  </div>
 @endsection
