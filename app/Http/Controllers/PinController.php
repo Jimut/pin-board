@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use File;
+use Image;
 use Gate;
 use App\User;
 use App\Pin;
@@ -11,6 +13,24 @@ use App\Http\Requests;
 
 class PinController extends Controller
 {
+  /**
+   * Holds the validation array for storing and updating
+   *
+   * @var array $rules
+   */
+  private $storingRules = [
+    'title' => 'required|min:6',
+    'description' => 'required|min:6',
+    'image' => 'required|mimes:png,jpg,jpeg'
+  ];
+
+  private $updatingRules = [
+    'title' => 'required|min:6',
+    'description' => 'required|min:6',
+    'image' => 'mimes:png,jpg,jpeg'
+  ];
+
+
   /**
    * Constructs the controller
    */
@@ -53,12 +73,15 @@ class PinController extends Controller
    */
   public function store(Request $request)
   {
-    $this->validatePin($request);
+    $this->validate($request, $this->storingRules);
+
+    $imageName = $this->storeImage($request->file('image'));
 
     $pin = new Pin;
     $pin->title = $request->title;
     $pin->description = $request->description;
     $pin->user_id = $request->user()->id;
+    $pin->image = $imageName;
     $pin->save();
 
     return redirect('pin/' . $pin->id)
@@ -114,7 +137,15 @@ class PinController extends Controller
       abort(403);
     }
 
-    $this->validatePin($request);
+    $this->validate($request, $this->updatingRules);
+
+    if ($request->hasFile('image')) {
+      $imageName = $this->storeImage($request->file('image'));
+
+      File::delete(public_path('assets/img/pins/') . $pin->image);
+
+      $pin->image = $imageName;
+    }
 
     $pin->title = $request->title;
     $pin->description = $request->description;
@@ -138,15 +169,29 @@ class PinController extends Controller
       abort(403);
     }
 
+    File::delete(public_path('assets/img/pins/') . $pin->image);
     $pin->delete();
 
     return redirect('/');
   }
 
-  private function validatePin ($request) {
-    $this->validate($request, [
-      'title' => 'required|min:6',
-      'description' => 'required|min:6',
-    ]);
+  /**
+   * Stores the image to filesystem
+   *
+   * @param $request->file() $image
+   * @return String
+   */
+  private function storeImage ($image) {
+    $imageName = md5($image->getClientOriginalName() . microtime())
+                  . '.' . $image->getClientOriginalExtension();
+
+    Image::make($image)
+            ->resize(300, null, function ($constraint) {
+              $constraint->aspectRatio();
+            })
+            ->save(public_path('assets/img/pins/') . $imageName);
+
+    return $imageName;
   }
+
 }

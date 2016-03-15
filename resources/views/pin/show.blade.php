@@ -2,6 +2,7 @@
 
 @section('content')
 
+  <img src="{{ URL::asset('assets/img/pins/' . $pin->image) }}" alt="{{ $pin->title }}">
   <h1>{{ $pin->title }}</h1>
   <p>{{ $pin->description }}</p>
   <p>Submitted by {{ $pin->user->name }}</p>

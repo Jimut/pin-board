@@ -5,7 +5,13 @@
   <div class="col-md-6 col-md-offset-3">
     <h1>Edit Pin</h1>
 
-    <form action="{{ route('pin.update', ['pin' => $pin->id]) }}" method="POST">
+    @include('common.error')
+
+    <img src="{{ URL::asset('assets/img/pins/' . $pin->image) }}" alt="{{ $pin->title }}">
+
+    <form action="{{ route('pin.update', ['pin' => $pin->id]) }}"
+          method="POST"
+          enctype="multipart/form-data">
 
       {{ csrf_field() }}
       {{ method_field('PUT') }}
@@ -26,6 +32,14 @@
                 type="text"
                 class="form-control"
                 value="{{ $pin->description }}">
+      </div>
+
+      <div class="form-group">
+        <label for="image">Image</label>
+        <input type="file"
+                name="image"
+                id="image"
+                accept="image/*">
       </div>
 
       <button type="submit" class="btn btn-primary">Save Pin</button>

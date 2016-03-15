@@ -7,7 +7,9 @@
 
     @include('common.error')
 
-    <form action="{{ url('pin') }}" method="POST">
+    <form action="{{ url('pin') }}"
+          method="POST"
+          enctype="multipart/form-data">
 
       {{ csrf_field() }}
 
@@ -29,11 +31,19 @@
                 value="{{ old('description') }}">
       </div>
 
+      <div class="form-group">
+        <label for="image">Image</label>
+        <input type="file"
+                name="image"
+                id="image"
+                accept="image/*">
+      </div>
+
       <button type="submit" class="btn btn-primary">Create Pin</button>
 
     </form>
 
     <a href="{{ url('/') }}">Back</a>
   </div>
-  
+
 @endsection
