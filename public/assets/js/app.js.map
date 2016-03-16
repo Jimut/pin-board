@@ -1,0 +1,1 @@
+{"version":3,"sources":["app.js"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA;AACA;AACA","file":"app.js","sourcesContent":["var $pins = $('#pins').masonry({\r\n  // options\r\n  itemSelector: '.box',\r\n  isFitWidth: true,\r\n  //columnWidth: 300\r\n});\r\n"],"sourceRoot":"/source/"}

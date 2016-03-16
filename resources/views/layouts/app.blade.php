@@ -80,6 +80,7 @@
   <!-- JavaScripts -->
   <script src="{{ URL::asset('includes/jquery/jquery-2.2.1.min.js') }}"></script>
   <script src="{{ URL::asset('includes/bootstrap-3.3.6/js/bootstrap.min.js') }}"></script>
-  {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+  <script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>
+  <script src="{{ URL::asset('assets/js/app.js') }}"></script> 
 </body>
 </html>
