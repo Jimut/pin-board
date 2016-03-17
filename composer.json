@@ -9,7 +9,8 @@
         "laravel/framework": "5.2.*",
         "intervention/image": "^2.3",
         "intervention/imagecache": "^2.3",
-        "rtconner/laravel-likeable": "~1.2"
+        "rtconner/laravel-likeable": "~1.2",
+        "ext-gd": "*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
