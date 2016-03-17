@@ -83,7 +83,8 @@ nav {
 
 #edit_page .current_image {
   display: block;
-  margin: 20px 0; }
+  margin: 20px 0;
+  width: 100%; }
 
 #pin_show .panel-heading {
   padding: 0; }

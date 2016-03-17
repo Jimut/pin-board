@@ -201,7 +201,7 @@ class PinController extends Controller
                   . '.' . $image->getClientOriginalExtension();
 
     Image::make($image)
-            ->resize(300, null, function ($constraint) {
+            ->resize(800, null, function ($constraint) {
               $constraint->aspectRatio();
             })
             ->save(public_path('assets/img/pins/') . $imageName);
