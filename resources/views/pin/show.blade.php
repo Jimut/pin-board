@@ -20,7 +20,16 @@
             <div class="col-sm-6">
               <div class="btn-group pull-right">
                 <a href="{{ route('pin.like', ['pin' => $pin->id]) }}" class="btn btn-default">
-                  <span class="glyphicon glyphicon-heart"></span>&nbsp;{{ $pin->likeCount }}
+                  @if (Auth::guest())
+                    <i class="fa fa-heart-o"></i>
+                  @else
+                    @if ($pin->liked())
+                      <i class="fa fa-heart"></i>
+                    @else
+                      <i class="fa fa-heart-o"></i>
+                    @endif
+                  @endif
+                  &nbsp;&nbsp;{{ $pin->likeCount }}
                 </a>
                 @can ('modify', $pin)
                   <a href="{{ route('pin.edit', ['pin' => $pin->id]) }}" class="btn btn-default">Edit</a>

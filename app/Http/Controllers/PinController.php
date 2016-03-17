@@ -184,7 +184,8 @@ class PinController extends Controller
   public function like($id) {
     $pin = Pin::find($id);
 
-    $pin->like();
+    if (!$pin->liked()) $pin->like();
+    else $pin->unlike();
 
     return redirect('pin/' . $pin->id);
   }
