@@ -29,4 +29,8 @@ Route::get('/', function () {
 Route::group(['middleware' => ['web']], function () {
   Route::auth();
   Route::resource('pin', 'PinController');
+  Route::get('pin/{pin}/like', [
+    'as' => 'pin.like',
+    'uses' => 'PinController@like',
+  ]);
 });

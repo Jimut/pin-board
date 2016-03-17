@@ -81,7 +81,7 @@ nav {
       padding: 15px;
       margin: 0; }
 
-#edit_page .current_image img {
+#edit_page .current_image {
   display: block;
   margin: 20px 0; }
 

@@ -157,6 +157,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Intervention\Image\ImageServiceProvider::class,
+        Conner\Likeable\LikeableServiceProvider::class,
 
     ],
 

@@ -3,7 +3,7 @@
 @section('content')
 
   <div class="col-md-6 col-md-offset-3">
-    <h1>New Form</h1>
+    <h1>New Pin</h1>
 
     @include('common.error')
 
@@ -24,11 +24,12 @@
 
       <div class="form-group">
         <label for="description">Description</label>
-        <input name="description"
+        <textarea name="description"
                 id="description"
                 type="text"
-                class="form-control"
-                value="{{ old('description') }}">
+                class="form-control">
+                {{ old('description') }}
+        </textarea>
       </div>
 
       <div class="form-group">
@@ -36,7 +37,8 @@
         <input type="file"
                 name="image"
                 id="image"
-                accept="image/*">
+                accept="image/*"
+                class="form-control">
       </div>
 
       <button type="submit" class="btn btn-primary">Create Pin</button>

@@ -19,7 +19,9 @@
             </div>
             <div class="col-sm-6">
               <div class="btn-group pull-right">
-                <a href="{{ url('/') }}" class="btn btn-default">Back</a>
+                <a href="{{ route('pin.like', ['pin' => $pin->id]) }}" class="btn btn-default">
+                  <span class="glyphicon glyphicon-heart"></span>&nbsp;{{ $pin->likeCount }}
+                </a>
                 @can ('modify', $pin)
                   <a href="{{ route('pin.edit', ['pin' => $pin->id]) }}" class="btn btn-default">Edit</a>
                   <form action="{{ route('pin.destroy', ['pin' => $pin->id]) }}"

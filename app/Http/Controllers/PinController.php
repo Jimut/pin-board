@@ -176,6 +176,20 @@ class PinController extends Controller
   }
 
   /**
+   * Like the specified pin
+   *
+   * @param int $id
+   * @return \Illuminate\Http\Response
+   */
+  public function like($id) {
+    $pin = Pin::find($id);
+
+    $pin->like();
+
+    return redirect('pin/' . $pin->id);
+  }
+
+  /**
    * Stores the image to filesystem
    *
    * @param $request->file() $image
