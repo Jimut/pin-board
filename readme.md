@@ -19,4 +19,5 @@ To run this on your local server.
 
 # Demo
 
-You can find a demo of the app [here](http://shrouded-ocean-21326.herokuapp.com)
+You can find a demo of the app [here](http://shrouded-ocean-21326.herokuapp.com). 
+P.S. Heroku uses a ephemeral filesystem, so images uploaded will not be stored more than 2 hours.
