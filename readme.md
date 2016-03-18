@@ -19,4 +19,4 @@ To run this on your local server.
 
 # Demo
 
-You can find a demo of the app [here](http://blooming-sierra-40514.herokuapp.com/)
+You can find a demo of the app [here](http://shrouded-ocean-21326.herokuapp.com)
